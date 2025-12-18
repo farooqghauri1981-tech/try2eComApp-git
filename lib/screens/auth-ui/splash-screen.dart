@@ -14,12 +14,23 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Timer? _timer;
+
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
-      Get.off(() => MainScreen());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _timer = Timer(const Duration(seconds: 5), () {
+        Get.off(() => const MainScreen());
+      });
     });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
   }
 
   @override
@@ -38,7 +49,11 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Container(
                 width: Get.width,
                 alignment: Alignment.center,
-                child: Lottie.asset('assets/images/shopping-cart.json'),
+                child: Lottie.asset(
+                  'assets/images/shopping-cart.json',
+                  repeat: true,
+                  animate: true,
+                  ),
               ),
             ),
             Container(
