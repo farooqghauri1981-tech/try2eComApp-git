@@ -19,15 +19,19 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-
+          
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable'
+          flutter-version: '3.38.5'
+          channel: 'stable'
 
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Flutter doctor
+        run: flutter doctor -v
+        
       - name: Build APK
         run: flutter build apk --release
 
