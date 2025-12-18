@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: Get.width,
                 alignment: Alignment.center,
                 child: Lottie.asset(
-                  'assets/images/shopping-cart.json',
+                  'assets/images/cart.json',
                   repeat: true,
                   animate: true,
                   ),
