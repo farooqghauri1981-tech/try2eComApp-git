@@ -43,17 +43,49 @@ class WelcomeScreen extends StatelessWidget {
               child: Container(
                 width: Get.width/1.2,
                 height: Get.height/12,
+                decoration: BoxDecoration(
+                  color: AppConstant.appSecondaryColor,
+                  borderRadius: BorderRadius.circular(20.0),
+                  ),
                 child: TextButton.icon(
                   icon: Image.asset(
                     'assets/images/google_sign_in.png',
                     width: Get.width / 12,
                     height: Get.height / 12,
                   ),
-                  label: Text('Sign in with Google'),
-                  onPressed: (){},
+                  label: Text('Sign in with Google',
+                  style: TextStyle(
+                    color: AppConstant.appTextColor,
+                    fontSize: 36.0,
+                  ),
+                  //onPressed: (){},
                 ),
               ),
-             )
+             ),
+            ),
+            SizedBox(
+              height: Get.height / 50,
+              ),
+            Material(
+              child: Container(
+                width: Get.width/1.2,
+                height: Get.height/12,
+                decoration: BoxDecoration(
+                  color: AppConstant.appSecondaryColor,
+                  borderRadius: BorderRadius.circular(20.0),
+                  ),
+                child: TextButton.icon(
+                  icon: Icon(Icons.email, color: AppConstant.appTextColor,),
+                  label: Text('Sign in with Email',
+                  style: TextStyle(
+                    color: AppConstant.appTextColor,
+                    fontSize: 36.0,
+                  ),
+                  //onPressed: (){},
+                ),
+              ),
+             ),
+            ),
           ],
         ),
       ),
