@@ -1,6 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:myapp/utils/app-constant.dart';
+import 'package:myapp/utils/app_constant.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});

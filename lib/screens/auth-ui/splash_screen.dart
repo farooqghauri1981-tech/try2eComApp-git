@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:myapp/screens/user-panel/main-screen.dart';
-import 'package:myapp/utils/app-constant.dart';
+
+import '../../utils/app_constant.dart';
+import 'welcome_screen.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,8 +22,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     
-    _timer = Timer(const Duration(seconds: 15), () {
-      Get.off(() => const MainScreen());
+    _timer = Timer(const Duration(seconds: 6), () {
+      Get.off(() => const WelcomeScreen());
     });
   }
 

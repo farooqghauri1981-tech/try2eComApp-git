@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/screens/auth-ui/splash-screen.dart';
-
-import 'screens/user-panel/main-screen.dart';
+import 'package:myapp/screens/auth-ui/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
