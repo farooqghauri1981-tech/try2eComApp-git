@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-import 'package:myapp/screens/auth-ui/sign_up_screen.dart';
+import 'package:myapp/screens/auth-ui/sign_in_screen.dart';
 import 'package:myapp/utils/app_constant.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   bool _obscurePassword = true;
 
   @override
@@ -24,26 +23,28 @@ class _SignInScreenState extends State<SignInScreen> {
             backgroundColor: AppConstant.appSecondaryColor,
             centerTitle: true,
             title: Text(
-              'Sign In',
+              'Sign Up',
               style: TextStyle(color: AppConstant.appTextColor),
             ),
           ),
           body: SafeArea(
             child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
               child: Column(
                 children: [
                   if (!isKeyboardVisible)
-                    Lottie.asset(
-                      'assets/images/cart.json',
-                      height: 180,
-                    )
-                  else
                     const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: Text('Welcome to my app'),
+                      padding: EdgeInsets.all(16.0),
+                      child: Text(
+                        'Create your account',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
 
-                  SizedBox(height: Get.height / 20),
+                  SizedBox(height: Get.height / 25),
 
                   // Email
                   Padding(
@@ -60,6 +61,55 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                   ),
+
+                  // Username
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: TextFormField(
+                      cursorColor: AppConstant.appSecondaryColor,
+                      keyboardType: TextInputType.name,
+                      decoration: InputDecoration(
+                        hintText: "Username",
+                        prefixIcon: const Icon(Icons.person),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // Phone
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: TextFormField(
+                      cursorColor: AppConstant.appSecondaryColor,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        hintText: "Phone",
+                        prefixIcon: const Icon(Icons.phone),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // City
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: TextFormField(
+                      cursorColor: AppConstant.appSecondaryColor,
+                      keyboardType: TextInputType.streetAddress,
+                      decoration: InputDecoration(
+                        hintText: "City",
+                        prefixIcon: const Icon(Icons.location_pin),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                  ),
+
 
                   const SizedBox(height: 12),
 
@@ -92,26 +142,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   ),
 
-                  const SizedBox(height: 8),
-
-                  // Forgot password
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(
-                          color: AppConstant.appSecondaryColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-
                   SizedBox(height: Get.height / 20),
 
-                  // Sign In Button
+                  // Sign Up Button
                   Material(
                     borderRadius: BorderRadius.circular(20),
                     child: SizedBox(
@@ -123,10 +156,10 @@ class _SignInScreenState extends State<SignInScreen> {
                               AppConstant.appSecondaryColor,
                         ),
                         onPressed: () {
-                          // TODO: Sign-in logic
+                          // TODO: Firebase Sign-Up
                         },
                         child: Text(
-                          'Sign In',
+                          'Create Account',
                           style: TextStyle(
                             color: AppConstant.appTextColor,
                             fontSize: 16,
@@ -138,23 +171,28 @@ class _SignInScreenState extends State<SignInScreen> {
 
                   SizedBox(height: Get.height / 20),
 
-                  // Sign Up Row
+                  // Navigate to Sign In
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't have an account? ",
+                        'Already have an account? ',
                         style: TextStyle(
                           color: AppConstant.appSecondaryColor,
                         ),
                       ),
                       GestureDetector(
-                        onTap: ()=> Get.offAll(()=> SignUpScreen()),
-                        child: Text(
-                          'Sign Up',
-                          style: TextStyle(
-                            color: AppConstant.appSecondaryColor,
-                            fontWeight: FontWeight.bold,
+                        onTap: () {
+                          Get.back(); // or Get.to(SignInScreen())
+                        },
+                        child: GestureDetector(
+                          onTap: ()=> Get.offAll(()=> SignInScreen()),
+                          child: Text(
+                            'Sign In',
+                            style: TextStyle(
+                              color: AppConstant.appSecondaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),

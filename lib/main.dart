@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/screens/auth-ui/splash_screen.dart';
+import 'package:myapp/screens/auth-ui/sign_up_screen.dart';
 
-import 'screens/auth-ui/sign_in_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 191, 176, 217)),
       ),
-      home: const SignInScreen(),
+      home: const SignUpScreen(),
     );
   }
 }
