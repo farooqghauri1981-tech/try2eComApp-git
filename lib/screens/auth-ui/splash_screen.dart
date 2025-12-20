@@ -36,9 +36,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppConstant.appSecondaryColor,
+      backgroundColor: const Color.fromARGB(255, 193, 175, 197),
       appBar: AppBar(
-        backgroundColor: AppConstant.appSecondaryColor,
+        backgroundColor: const Color.fromARGB(255, 145, 137, 146),
         elevation: 0,
       ),
       body: Column(

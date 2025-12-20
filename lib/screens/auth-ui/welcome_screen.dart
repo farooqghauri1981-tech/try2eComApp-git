@@ -56,7 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                   label: Text('Sign in with Google',
                   style: TextStyle(
                     color: AppConstant.appTextColor,
-                    fontSize: 36.0,
+                    fontSize: 16.0,
                   ),
                 ),
                   onPressed: (){},
@@ -79,7 +79,7 @@ class WelcomeScreen extends StatelessWidget {
                   label: Text('Sign in with Email',
                   style: TextStyle(
                     color: AppConstant.appTextColor,
-                    fontSize: 36.0,
+                    fontSize: 16.0,
                   ),
                 ),
                 onPressed: (){},
