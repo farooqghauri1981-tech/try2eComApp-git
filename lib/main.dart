@@ -4,6 +4,9 @@ import 'package:myapp/screens/auth-ui/sign_up_screen.dart';
 
 
 void main() {
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
